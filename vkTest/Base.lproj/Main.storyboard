@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--News View Controller-->
+        <!--Новости-->
         <scene sceneID="95y-Pa-xzb">
             <objects>
                 <tableViewController id="xrd-dk-LkB" customClass="NewsViewController" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                             <outlet property="delegate" destination="xrd-dk-LkB" id="PEn-P7-SQQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="srs-ox-wNo"/>
+                    <navigationItem key="navigationItem" title="Новости" id="srs-ox-wNo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCO-mD-bPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="197" y="505"/>
         </scene>
-        <!--View Controller-->
+        <!--Логин-->
         <scene sceneID="1Mb-SS-uic">
             <objects>
-                <viewController id="sBo-av-ALR" sceneMemberID="viewController">
+                <viewController id="sBo-av-ALR" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ob4-lL-Wrj"/>
                         <viewControllerLayoutGuide type="bottom" id="wz4-wQ-ZPA"/>
@@ -61,9 +61,25 @@
                     <view key="view" contentMode="scaleToFill" id="q8m-I0-rRX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiY-oF-wpP">
+                                <rect key="frame" x="207" y="284" width="187" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <state key="normal" title="Авторизация ВКонтакте">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="authButtonPressed:" destination="sBo-av-ALR" eventType="touchUpInside" id="s26-nf-edp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="NiY-oF-wpP" secondAttribute="centerY" id="MXX-YP-YcV"/>
+                            <constraint firstAttribute="centerX" secondItem="NiY-oF-wpP" secondAttribute="centerX" id="xSH-Xx-Pfz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WsN-Uf-eWc"/>
+                    <navigationItem key="navigationItem" title="Логин" id="WsN-Uf-eWc"/>
                     <connections>
                         <segue destination="xrd-dk-LkB" kind="show" identifier="showNews" id="WPG-HN-s3v"/>
                     </connections>

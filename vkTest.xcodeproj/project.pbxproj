@@ -17,6 +17,9 @@
 		3FE216E81B96CA5B00954B8D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216E71B96CA5B00954B8D /* DetailViewController.m */; };
 		3FE216EB1B96CAC200954B8D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216EA1B96CAC200954B8D /* LoginViewController.m */; };
 		3FE216EF1B96D0E600954B8D /* vkTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216ED1B96D0E600954B8D /* vkTest.xcdatamodeld */; };
+		3FE216FB1B96D3B900954B8D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216FA1B96D3B900954B8D /* KeychainItemWrapper.m */; };
+		3FE216FE1B96D3CA00954B8D /* VkAccountData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216FD1B96D3CA00954B8D /* VkAccountData.m */; };
+		3FE217011B96D4F900954B8D /* UIViewController+ShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217001B96D4F900954B8D /* UIViewController+ShowAlertView.m */; };
 		B0ED5D3F9D44C727CC0F0098 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C377CB3E6D983D3A5B2A857E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,13 @@
 		3FE216E91B96CAC200954B8D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3FE216EA1B96CAC200954B8D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3FE216EE1B96D0E600954B8D /* vkTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = vkTest.xcdatamodel; sourceTree = "<group>"; };
+		3FE216F71B96D35100954B8D /* vkTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = vkTest.entitlements; sourceTree = "<group>"; };
+		3FE216F91B96D3B900954B8D /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		3FE216FA1B96D3B900954B8D /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		3FE216FC1B96D3CA00954B8D /* VkAccountData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VkAccountData.h; sourceTree = "<group>"; };
+		3FE216FD1B96D3CA00954B8D /* VkAccountData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VkAccountData.m; sourceTree = "<group>"; };
+		3FE216FF1B96D4F900954B8D /* UIViewController+ShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowAlertView.h"; sourceTree = "<group>"; };
+		3FE217001B96D4F900954B8D /* UIViewController+ShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowAlertView.m"; sourceTree = "<group>"; };
 		C377CB3E6D983D3A5B2A857E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53207EB65460EF306C82290 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +107,8 @@
 		3FE216BA1B96C76800954B8D /* vkTest */ = {
 			isa = PBXGroup;
 			children = (
+				3FE216F71B96D35100954B8D /* vkTest.entitlements */,
+				3FE216F81B96D3B900954B8D /* Keychain */,
 				3FE216EC1B96CBDE00954B8D /* CoreData */,
 				3FE216E21B96CA2000954B8D /* ViewControllers */,
 				3FE216BF1B96C76800954B8D /* AppDelegate.h */,
@@ -139,6 +151,8 @@
 		3FE216E21B96CA2000954B8D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3FE216FF1B96D4F900954B8D /* UIViewController+ShowAlertView.h */,
+				3FE217001B96D4F900954B8D /* UIViewController+ShowAlertView.m */,
 				3FE216E31B96CA2000954B8D /* NewsViewController.h */,
 				3FE216E41B96CA2000954B8D /* NewsViewController.m */,
 				3FE216E61B96CA5B00954B8D /* DetailViewController.h */,
@@ -155,6 +169,17 @@
 				3FE216ED1B96D0E600954B8D /* vkTest.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3FE216F81B96D3B900954B8D /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				3FE216F91B96D3B900954B8D /* KeychainItemWrapper.h */,
+				3FE216FA1B96D3B900954B8D /* KeychainItemWrapper.m */,
+				3FE216FC1B96D3CA00954B8D /* VkAccountData.h */,
+				3FE216FD1B96D3CA00954B8D /* VkAccountData.m */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		6C15765D946237CCBE837322 /* Frameworks */ = {
@@ -225,6 +250,12 @@
 				TargetAttributes = {
 					3FE216B71B96C76800954B8D = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 9377R37M3Q;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					3FE216D01B96C76800954B8D = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -311,10 +342,13 @@
 			files = (
 				3FE216EF1B96D0E600954B8D /* vkTest.xcdatamodeld in Sources */,
 				3FE216E51B96CA2000954B8D /* NewsViewController.m in Sources */,
+				3FE216FE1B96D3CA00954B8D /* VkAccountData.m in Sources */,
 				3FE216C11B96C76800954B8D /* AppDelegate.m in Sources */,
 				3FE216BE1B96C76800954B8D /* main.m in Sources */,
 				3FE216E81B96CA5B00954B8D /* DetailViewController.m in Sources */,
 				3FE216EB1B96CAC200954B8D /* LoginViewController.m in Sources */,
+				3FE216FB1B96D3B900954B8D /* KeychainItemWrapper.m in Sources */,
+				3FE217011B96D4F900954B8D /* UIViewController+ShowAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,11 +475,15 @@
 			baseConfigurationReference = F53207EB65460EF306C82290 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = vkTest/vkTest.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "vkTest-Prefix.pch";
 				INFOPLIST_FILE = vkTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -454,11 +492,15 @@
 			baseConfigurationReference = 23C0423F1B38CB23E41C4999 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = vkTest/vkTest.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "vkTest-Prefix.pch";
 				INFOPLIST_FILE = vkTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

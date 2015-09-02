@@ -7,8 +7,13 @@
 //
 
 #import "LoginViewController.h"
+#import "UIViewController+ShowAlertView.h"
+#import <VKSdk.h>
+#import "VKAccountData.h"
 
-@interface LoginViewController ()
+NSString * const VK_APP_ID = @"5054958";
+
+@interface LoginViewController () <VKSdkDelegate>
 
 @end
 
@@ -17,11 +22,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [VKSdk initializeWithDelegate:self andAppId:VK_APP_ID];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - VK methods
+
+- (IBAction)authButtonPressed:(id)sender {
+    [VKSdk authorize: @[VK_PER_WALL]];
+}
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError
+{
+    VKCaptchaViewController *vkController = [VKCaptchaViewController captchaControllerWithError:captchaError];
+    [vkController presentIn:self];
+}
+
+- (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken
+{
+    //relogin
+    [self authButtonPressed:nil];
+}
+
+- (void)vkSdkUserDeniedAccess:(VKError *)authorizationError
+{
+    [self showAlertWithTitle:NSLocalizedString(@"Доступ отклонен", nil)
+                  andMessage:NSLocalizedString(@"Нет прав для доступа к ВКонтакте. Отменено пользователем.", nil)];
+}
+
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller
+{
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)vkSdkDidAcceptUserToken:(VKAccessToken *)token
+{
+    NSLog(@"VkSdk did accept user token");
+}
+
+- (void)vkSdkReceivedNewToken:(VKAccessToken *)newToken
+{
+    VkAccountData *data = [[VkAccountData alloc] init];
+    [data writeAccessTokenToKeychain:newToken.accessToken withUserId:newToken.userId];
+    NSLog(@"vkSdkReceivedNewToken token saved, user id = %@", newToken.userId);
+    [self performSegueWithIdentifier:@"showNews" sender:self];
 }
 
 /*
