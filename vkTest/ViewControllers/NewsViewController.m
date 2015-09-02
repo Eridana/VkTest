@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  NewsViewController.m
 //  vkTest
 //
 //  Created by Женя Михайлова on 02.09.15.
 //  Copyright (c) 2015 jane. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "NewsViewController.h"
 
-@interface ViewController ()
+@interface NewsViewController ()
 
 @end
 
-@implementation ViewController
+@implementation NewsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NewsViewController.h
 //  vkTest
 //
 //  Created by Женя Михайлова on 02.09.15.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NewsViewController : UITableViewController
 
 @end
 
