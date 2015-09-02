@@ -40,6 +40,7 @@
 		3FE216D11B96C76800954B8D /* vkTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE216D61B96C76800954B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE216D71B96C76800954B8D /* vkTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vkTestTests.m; sourceTree = "<group>"; };
+		3FE216E11B96C78B00954B8D /* vkTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vkTest-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +97,7 @@
 		3FE216BB1B96C76800954B8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FE216E11B96C78B00954B8D /* vkTest-Prefix.pch */,
 				3FE216BC1B96C76800954B8D /* Info.plist */,
 				3FE216BD1B96C76800954B8D /* main.m */,
 			);
@@ -347,7 +349,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "vkTest-Prefix.pch";
 				INFOPLIST_FILE = vkTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,7 +361,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "vkTest-Prefix.pch";
 				INFOPLIST_FILE = vkTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
