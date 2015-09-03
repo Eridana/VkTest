@@ -3,18 +3,19 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Новости-->
         <scene sceneID="95y-Pa-xzb">
             <objects>
                 <tableViewController id="xrd-dk-LkB" customClass="NewsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Udz-I2-6QQ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="22" sectionFooterHeight="22" id="Udz-I2-6QQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bWV-zo-NdH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="bWV-zo-NdH">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bWV-zo-NdH" id="D3Z-7J-ygL">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -27,6 +28,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Новости" id="srs-ox-wNo"/>
+                    <connections>
+                        <segue destination="PuY-XV-H3j" kind="presentation" id="alW-vk-19Z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCO-mD-bPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,6 +91,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIb-y7-Gt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="907" y="505"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="NQm-Ss-EVI">
+            <objects>
+                <viewController id="PuY-XV-H3j" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NtL-PE-m0P"/>
+                        <viewControllerLayoutGuide type="bottom" id="gXZ-nW-a6E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S33-fp-UJu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgt-rO-FoQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPK-Dw-hpI" customClass="ATPagingView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="PuY-XV-H3j" id="MiA-jg-Xbv"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fPK-Dw-hpI" firstAttribute="leading" secondItem="mgt-rO-FoQ" secondAttribute="leading" id="KtS-0X-DZL"/>
+                                    <constraint firstItem="fPK-Dw-hpI" firstAttribute="top" secondItem="mgt-rO-FoQ" secondAttribute="top" id="aLk-LW-UKf"/>
+                                    <constraint firstAttribute="trailing" secondItem="fPK-Dw-hpI" secondAttribute="trailing" id="kLd-mz-peq"/>
+                                    <constraint firstAttribute="bottom" secondItem="fPK-Dw-hpI" secondAttribute="bottom" id="vYL-sa-X3V"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mgt-rO-FoQ" firstAttribute="leading" secondItem="S33-fp-UJu" secondAttribute="leadingMargin" constant="-16" id="0Rw-s4-vhX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mgt-rO-FoQ" secondAttribute="trailing" constant="-16" id="2H8-k1-oXe"/>
+                            <constraint firstItem="gXZ-nW-a6E" firstAttribute="top" secondItem="mgt-rO-FoQ" secondAttribute="bottom" id="JbV-Gg-hcP"/>
+                            <constraint firstItem="mgt-rO-FoQ" firstAttribute="top" secondItem="NtL-PE-m0P" secondAttribute="bottom" constant="-20" id="ZpS-qd-xpw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pagingView" destination="fPK-Dw-hpI" id="hXO-Jj-Q0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBL-gm-S9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="1210"/>
         </scene>
     </scenes>
 </document>

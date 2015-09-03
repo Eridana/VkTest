@@ -20,6 +20,12 @@
 		3FE216FB1B96D3B900954B8D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216FA1B96D3B900954B8D /* KeychainItemWrapper.m */; };
 		3FE216FE1B96D3CA00954B8D /* VkAccountData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE216FD1B96D3CA00954B8D /* VkAccountData.m */; };
 		3FE217011B96D4F900954B8D /* UIViewController+ShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217001B96D4F900954B8D /* UIViewController+ShowAlertView.m */; };
+		3FE2171A1B9800DA00954B8D /* ATPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2170E1B9800DA00954B8D /* ATPagingView.m */; };
+		3FE2171B1B9800DA00954B8D /* NWTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217111B9800DA00954B8D /* NWTapDetectingImageView.m */; };
+		3FE2171C1B9800DA00954B8D /* NWTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217131B9800DA00954B8D /* NWTapDetectingView.m */; };
+		3FE2171D1B9800DA00954B8D /* NWZoomingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217151B9800DA00954B8D /* NWZoomingImageView.m */; };
+		3FE2171E1B9800DA00954B8D /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217171B9800DA00954B8D /* ImageViewController.m */; };
+		3FE2171F1B9800DA00954B8D /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217191B9800DA00954B8D /* ZoomImageView.m */; };
 		B0ED5D3F9D44C727CC0F0098 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C377CB3E6D983D3A5B2A857E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +67,18 @@
 		3FE216FD1B96D3CA00954B8D /* VkAccountData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VkAccountData.m; sourceTree = "<group>"; };
 		3FE216FF1B96D4F900954B8D /* UIViewController+ShowAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowAlertView.h"; sourceTree = "<group>"; };
 		3FE217001B96D4F900954B8D /* UIViewController+ShowAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowAlertView.m"; sourceTree = "<group>"; };
+		3FE2170D1B9800DA00954B8D /* ATPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPagingView.h; sourceTree = "<group>"; };
+		3FE2170E1B9800DA00954B8D /* ATPagingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPagingView.m; sourceTree = "<group>"; };
+		3FE217101B9800DA00954B8D /* NWTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWTapDetectingImageView.h; sourceTree = "<group>"; };
+		3FE217111B9800DA00954B8D /* NWTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWTapDetectingImageView.m; sourceTree = "<group>"; };
+		3FE217121B9800DA00954B8D /* NWTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWTapDetectingView.h; sourceTree = "<group>"; };
+		3FE217131B9800DA00954B8D /* NWTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWTapDetectingView.m; sourceTree = "<group>"; };
+		3FE217141B9800DA00954B8D /* NWZoomingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWZoomingImageView.h; sourceTree = "<group>"; };
+		3FE217151B9800DA00954B8D /* NWZoomingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWZoomingImageView.m; sourceTree = "<group>"; };
+		3FE217161B9800DA00954B8D /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = ../External/ImageViewController.h; sourceTree = "<group>"; };
+		3FE217171B9800DA00954B8D /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = ../External/ImageViewController.m; sourceTree = "<group>"; };
+		3FE217181B9800DA00954B8D /* ZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageView.h; sourceTree = "<group>"; };
+		3FE217191B9800DA00954B8D /* ZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageView.m; sourceTree = "<group>"; };
 		C377CB3E6D983D3A5B2A857E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53207EB65460EF306C82290 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +129,7 @@
 				3FE216F81B96D3B900954B8D /* Keychain */,
 				3FE216EC1B96CBDE00954B8D /* CoreData */,
 				3FE216E21B96CA2000954B8D /* ViewControllers */,
+				3FE2170B1B98009000954B8D /* External */,
 				3FE216BF1B96C76800954B8D /* AppDelegate.h */,
 				3FE216C01B96C76800954B8D /* AppDelegate.m */,
 				3FE216C51B96C76800954B8D /* Main.storyboard */,
@@ -159,6 +178,8 @@
 				3FE216E71B96CA5B00954B8D /* DetailViewController.m */,
 				3FE216E91B96CAC200954B8D /* LoginViewController.h */,
 				3FE216EA1B96CAC200954B8D /* LoginViewController.m */,
+				3FE217161B9800DA00954B8D /* ImageViewController.h */,
+				3FE217171B9800DA00954B8D /* ImageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -180,6 +201,39 @@
 				3FE216FD1B96D3CA00954B8D /* VkAccountData.m */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		3FE2170B1B98009000954B8D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				3FE2170C1B9800DA00954B8D /* ATPagingView */,
+				3FE2170F1B9800DA00954B8D /* NWImageViewer */,
+				3FE217181B9800DA00954B8D /* ZoomImageView.h */,
+				3FE217191B9800DA00954B8D /* ZoomImageView.m */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		3FE2170C1B9800DA00954B8D /* ATPagingView */ = {
+			isa = PBXGroup;
+			children = (
+				3FE2170D1B9800DA00954B8D /* ATPagingView.h */,
+				3FE2170E1B9800DA00954B8D /* ATPagingView.m */,
+			);
+			path = ATPagingView;
+			sourceTree = "<group>";
+		};
+		3FE2170F1B9800DA00954B8D /* NWImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				3FE217101B9800DA00954B8D /* NWTapDetectingImageView.h */,
+				3FE217111B9800DA00954B8D /* NWTapDetectingImageView.m */,
+				3FE217121B9800DA00954B8D /* NWTapDetectingView.h */,
+				3FE217131B9800DA00954B8D /* NWTapDetectingView.m */,
+				3FE217141B9800DA00954B8D /* NWZoomingImageView.h */,
+				3FE217151B9800DA00954B8D /* NWZoomingImageView.m */,
+			);
+			path = NWImageViewer;
 			sourceTree = "<group>";
 		};
 		6C15765D946237CCBE837322 /* Frameworks */ = {
@@ -341,13 +395,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE216EF1B96D0E600954B8D /* vkTest.xcdatamodeld in Sources */,
+				3FE2171A1B9800DA00954B8D /* ATPagingView.m in Sources */,
 				3FE216E51B96CA2000954B8D /* NewsViewController.m in Sources */,
+				3FE2171C1B9800DA00954B8D /* NWTapDetectingView.m in Sources */,
 				3FE216FE1B96D3CA00954B8D /* VkAccountData.m in Sources */,
+				3FE2171B1B9800DA00954B8D /* NWTapDetectingImageView.m in Sources */,
 				3FE216C11B96C76800954B8D /* AppDelegate.m in Sources */,
+				3FE2171F1B9800DA00954B8D /* ZoomImageView.m in Sources */,
+				3FE2171D1B9800DA00954B8D /* NWZoomingImageView.m in Sources */,
 				3FE216BE1B96C76800954B8D /* main.m in Sources */,
 				3FE216E81B96CA5B00954B8D /* DetailViewController.m in Sources */,
 				3FE216EB1B96CAC200954B8D /* LoginViewController.m in Sources */,
 				3FE216FB1B96D3B900954B8D /* KeychainItemWrapper.m in Sources */,
+				3FE2171E1B9800DA00954B8D /* ImageViewController.m in Sources */,
 				3FE217011B96D4F900954B8D /* UIViewController+ShowAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
