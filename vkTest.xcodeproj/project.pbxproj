@@ -26,6 +26,7 @@
 		3FE2171D1B9800DA00954B8D /* NWZoomingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217151B9800DA00954B8D /* NWZoomingImageView.m */; };
 		3FE2171E1B9800DA00954B8D /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217171B9800DA00954B8D /* ImageViewController.m */; };
 		3FE2171F1B9800DA00954B8D /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217191B9800DA00954B8D /* ZoomImageView.m */; };
+		3FE217231B980A6100954B8D /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217221B980A6100954B8D /* NewsTableViewCell.m */; };
 		B0ED5D3F9D44C727CC0F0098 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C377CB3E6D983D3A5B2A857E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		3FE217171B9800DA00954B8D /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = ../External/ImageViewController.m; sourceTree = "<group>"; };
 		3FE217181B9800DA00954B8D /* ZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageView.h; sourceTree = "<group>"; };
 		3FE217191B9800DA00954B8D /* ZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageView.m; sourceTree = "<group>"; };
+		3FE217211B980A6100954B8D /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		3FE217221B980A6100954B8D /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 		C377CB3E6D983D3A5B2A857E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53207EB65460EF306C82290 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +132,7 @@
 				3FE216F81B96D3B900954B8D /* Keychain */,
 				3FE216EC1B96CBDE00954B8D /* CoreData */,
 				3FE216E21B96CA2000954B8D /* ViewControllers */,
+				3FE217201B980A4F00954B8D /* Cells */,
 				3FE2170B1B98009000954B8D /* External */,
 				3FE216BF1B96C76800954B8D /* AppDelegate.h */,
 				3FE216C01B96C76800954B8D /* AppDelegate.m */,
@@ -234,6 +238,15 @@
 				3FE217151B9800DA00954B8D /* NWZoomingImageView.m */,
 			);
 			path = NWImageViewer;
+			sourceTree = "<group>";
+		};
+		3FE217201B980A4F00954B8D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3FE217211B980A6100954B8D /* NewsTableViewCell.h */,
+				3FE217221B980A6100954B8D /* NewsTableViewCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		6C15765D946237CCBE837322 /* Frameworks */ = {
@@ -408,6 +421,7 @@
 				3FE216EB1B96CAC200954B8D /* LoginViewController.m in Sources */,
 				3FE216FB1B96D3B900954B8D /* KeychainItemWrapper.m in Sources */,
 				3FE2171E1B9800DA00954B8D /* ImageViewController.m in Sources */,
+				3FE217231B980A6100954B8D /* NewsTableViewCell.m in Sources */,
 				3FE217011B96D4F900954B8D /* UIViewController+ShowAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

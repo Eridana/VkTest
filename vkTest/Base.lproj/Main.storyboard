@@ -10,16 +10,91 @@
         <scene sceneID="95y-Pa-xzb">
             <objects>
                 <tableViewController id="xrd-dk-LkB" customClass="NewsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="22" sectionFooterHeight="22" id="Udz-I2-6QQ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="370" sectionHeaderHeight="22" sectionFooterHeight="22" id="Udz-I2-6QQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="bWV-zo-NdH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="newsTableViewCell" rowHeight="370" id="bWV-zo-NdH" customClass="NewsTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bWV-zo-NdH" id="D3Z-7J-ygL">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6oe-or-Rsw">
+                                            <rect key="frame" x="8" y="8" width="55" height="55"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="d5T-kG-HVM"/>
+                                                <constraint firstAttribute="width" constant="55" id="onl-Ej-tA9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWG-Jt-nkB">
+                                            <rect key="frame" x="76" y="8" width="516" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrD-fv-tlb">
+                                            <rect key="frame" x="76" y="36" width="384" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DF-f2-LhU">
+                                            <rect key="frame" x="468" y="36" width="124" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="124" id="0GL-Tf-veW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-Ir-Yey">
+                                            <rect key="frame" x="8" y="64" width="584" height="100"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="ebU-DF-amY"/>
+                                            </constraints>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</string>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7WP-Ld-SMQ">
+                                            <rect key="frame" x="8" y="169" width="584" height="192"/>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="192" id="Aa6-Go-nYa"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rrD-fv-tlb" firstAttribute="top" secondItem="hWG-Jt-nkB" secondAttribute="bottom" constant="8" id="6MV-nF-My9"/>
+                                        <constraint firstAttribute="trailing" secondItem="7WP-Ld-SMQ" secondAttribute="trailing" constant="8" id="8MG-lQ-c5W"/>
+                                        <constraint firstAttribute="trailing" secondItem="7bo-Ir-Yey" secondAttribute="trailing" constant="8" id="8Wa-qq-ZYq"/>
+                                        <constraint firstItem="hWG-Jt-nkB" firstAttribute="leading" secondItem="rrD-fv-tlb" secondAttribute="leading" id="9T8-4i-Xhg"/>
+                                        <constraint firstItem="6oe-or-Rsw" firstAttribute="leading" secondItem="D3Z-7J-ygL" secondAttribute="leading" constant="8" id="CIe-JH-qMn"/>
+                                        <constraint firstAttribute="bottom" secondItem="7WP-Ld-SMQ" secondAttribute="bottom" constant="8" id="GUw-9d-KTx"/>
+                                        <constraint firstItem="7bo-Ir-Yey" firstAttribute="leading" secondItem="D3Z-7J-ygL" secondAttribute="leading" constant="8" id="RPM-pj-tfY"/>
+                                        <constraint firstAttribute="trailing" secondItem="4DF-f2-LhU" secondAttribute="trailing" constant="8" id="UlB-9I-YCS"/>
+                                        <constraint firstItem="7WP-Ld-SMQ" firstAttribute="top" secondItem="7bo-Ir-Yey" secondAttribute="bottom" constant="5" id="XJ4-7x-qca"/>
+                                        <constraint firstItem="7WP-Ld-SMQ" firstAttribute="leading" secondItem="D3Z-7J-ygL" secondAttribute="leading" constant="8" id="YPi-bT-6hZ"/>
+                                        <constraint firstItem="4DF-f2-LhU" firstAttribute="bottom" secondItem="rrD-fv-tlb" secondAttribute="bottom" id="fKF-n3-bS3"/>
+                                        <constraint firstItem="4DF-f2-LhU" firstAttribute="leading" secondItem="rrD-fv-tlb" secondAttribute="trailing" constant="8" id="jF1-NB-Y0f"/>
+                                        <constraint firstAttribute="trailing" secondItem="hWG-Jt-nkB" secondAttribute="trailing" constant="8" id="m70-lQ-lTs"/>
+                                        <constraint firstItem="7bo-Ir-Yey" firstAttribute="top" secondItem="rrD-fv-tlb" secondAttribute="bottom" constant="10" id="mKy-Wa-BB6"/>
+                                        <constraint firstItem="6oe-or-Rsw" firstAttribute="top" secondItem="D3Z-7J-ygL" secondAttribute="top" constant="8" id="nbr-DW-Dh3"/>
+                                        <constraint firstItem="hWG-Jt-nkB" firstAttribute="leading" secondItem="6oe-or-Rsw" secondAttribute="trailing" constant="13" id="noE-qF-nnl"/>
+                                        <constraint firstItem="hWG-Jt-nkB" firstAttribute="top" secondItem="D3Z-7J-ygL" secondAttribute="top" constant="8" id="roz-5W-AH7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImgView" destination="6oe-or-Rsw" id="cdI-i7-3lh"/>
+                                    <outlet property="dateLabel" destination="4DF-f2-LhU" id="VhZ-eO-qgI"/>
+                                    <outlet property="postImageView" destination="7WP-Ld-SMQ" id="nPT-zb-U8c"/>
+                                    <outlet property="postTextHeightConstraint" destination="ebU-DF-amY" id="dwL-YG-gzR"/>
+                                    <outlet property="postTextView" destination="7bo-Ir-Yey" id="Gts-vB-COU"/>
+                                    <outlet property="titleLabel" destination="hWG-Jt-nkB" id="IfD-pN-DLB"/>
+                                    <outlet property="userNameLabel" destination="rrD-fv-tlb" id="HhA-VQ-NcY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -29,7 +104,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Новости" id="srs-ox-wNo"/>
                     <connections>
-                        <segue destination="PuY-XV-H3j" kind="presentation" id="alW-vk-19Z"/>
+                        <segue destination="PuY-XV-H3j" kind="presentation" identifier="showImages" id="alW-vk-19Z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCO-mD-bPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
