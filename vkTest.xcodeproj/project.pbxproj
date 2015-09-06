@@ -27,6 +27,7 @@
 		3FE2171E1B9800DA00954B8D /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217171B9800DA00954B8D /* ImageViewController.m */; };
 		3FE2171F1B9800DA00954B8D /* ZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217191B9800DA00954B8D /* ZoomImageView.m */; };
 		3FE217231B980A6100954B8D /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217221B980A6100954B8D /* NewsTableViewCell.m */; };
+		3FE217261B9C157800954B8D /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE217251B9C157800954B8D /* Post.m */; };
 		B0ED5D3F9D44C727CC0F0098 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C377CB3E6D983D3A5B2A857E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		3FE217191B9800DA00954B8D /* ZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageView.m; sourceTree = "<group>"; };
 		3FE217211B980A6100954B8D /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		3FE217221B980A6100954B8D /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		3FE217241B9C157800954B8D /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		3FE217251B9C157800954B8D /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		C377CB3E6D983D3A5B2A857E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53207EB65460EF306C82290 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +194,8 @@
 		3FE216EC1B96CBDE00954B8D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3FE217241B9C157800954B8D /* Post.h */,
+				3FE217251B9C157800954B8D /* Post.m */,
 				3FE216ED1B96D0E600954B8D /* vkTest.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -417,6 +422,7 @@
 				3FE2171F1B9800DA00954B8D /* ZoomImageView.m in Sources */,
 				3FE2171D1B9800DA00954B8D /* NWZoomingImageView.m in Sources */,
 				3FE216BE1B96C76800954B8D /* main.m in Sources */,
+				3FE217261B9C157800954B8D /* Post.m in Sources */,
 				3FE216E81B96CA5B00954B8D /* DetailViewController.m in Sources */,
 				3FE216EB1B96CAC200954B8D /* LoginViewController.m in Sources */,
 				3FE216FB1B96D3B900954B8D /* KeychainItemWrapper.m in Sources */,
