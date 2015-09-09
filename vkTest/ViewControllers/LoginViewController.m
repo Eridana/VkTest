@@ -14,7 +14,9 @@
 NSString * const VK_APP_ID = @"5054958";
 
 @interface LoginViewController () <VKSdkDelegate>
-
+{
+    VkAccountData *data;
+}
 @end
 
 @implementation LoginViewController
@@ -23,6 +25,10 @@ NSString * const VK_APP_ID = @"5054958";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [VKSdk initializeWithDelegate:self andAppId:VK_APP_ID];
+    
+    if ([VKSdk wakeUpSession] == YES) {
+        [self performSegueWithIdentifier:@"showNews" sender:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +40,11 @@ NSString * const VK_APP_ID = @"5054958";
 
 - (IBAction)authButtonPressed:(id)sender {
     [VKSdk authorize: @[VK_PER_WALL]];
+}
+
+- (IBAction)looutButtonPressed:(id)sender {
+    [VKSdk forceLogout];
+    [data resetKeychain];
 }
 
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError
@@ -66,20 +77,9 @@ NSString * const VK_APP_ID = @"5054958";
 
 - (void)vkSdkReceivedNewToken:(VKAccessToken *)newToken
 {
-    VkAccountData *data = [[VkAccountData alloc] init];
     [data writeAccessTokenToKeychain:newToken.accessToken withUserId:newToken.userId];
     NSLog(@"vkSdkReceivedNewToken token saved, user id = %@", newToken.userId);
     [self performSegueWithIdentifier:@"showNews" sender:self];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
