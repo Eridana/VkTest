@@ -167,7 +167,7 @@
         NSNumber *idUnique = [NSNumber numberWithInt: [[dict objectForKey:@"gid"] intValue]];
         Group *group = [Group MR_findFirstByAttribute:@"idUnique" withValue:idUnique];
         if (!group) {
-            group = [User MR_createEntity];
+            group = [Group MR_createEntity];
             group.idUnique = idUnique;
         }
         if (![[dict objectForKey:@"name"] isEqual:[NSNull null]]) {
