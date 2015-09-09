@@ -47,19 +47,28 @@
 
 - (void)savePostsToCoreDataWithJson:(NSDictionary *)json
 {
-    [self parseGroupsFromData:[json objectForKey:@"groups"]];
-    [self parseProfilesFromData:[json objectForKey:@"profiles"]];
+    if ([json objectForKey:@"groups"]) {
+        [self parseGroupsFromData:[json objectForKey:@"groups"]];
+    }
+    if ([json objectForKey:@"profiles"]) {
+        [self parseProfilesFromData:[json objectForKey:@"profiles"]];
+    }
     
-    NSArray *posts = [json objectForKey:@"items"];
-    for (NSDictionary *dict in posts) {
-        NSArray *reposts = [dict objectForKey:@"copy_history"];
-        if (reposts && reposts.count > 0) {
-            [self parsePostFromDictionary:[reposts firstObject]];
-        }
-        else {
-            [self parsePostFromDictionary:dict];
+    if ([json objectForKey:@"items"]) {
+        NSArray *posts = [json objectForKey:@"items"];
+        for (NSDictionary *dict in posts) {
+            if ([dict objectForKey:@"copy_history"]) {                
+                NSArray *reposts = [dict objectForKey:@"copy_history"];
+                if (reposts && reposts.count > 0) {
+                    [self parsePostFromDictionary:[reposts firstObject]];
+                }
+                else {
+                    [self parsePostFromDictionary:dict];
+                }
+            }
         }
     }
+   
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
@@ -95,20 +104,35 @@
             }
         }
     }
-    if ([dict objectForKey:@"attachments"]) {
-        NSArray *photos = [dict objectForKey:@"attachments"];
-        for (NSMutableDictionary *dict in photos) {
-            if ([[dict objectForKey:@"type"] isEqualToString:@"photo"]) {
-                NSDictionary *photosDict = [dict objectForKey:@"photo"];
-                if ([photosDict objectForKey:@"photo_1280"]) {
-                    NSString *url = [photosDict objectForKey:@"photo_1280"];
-                    Attachment *photo = [Attachment MR_findFirstByAttribute:@"attachmentUrl" withValue:url];
-                    if (!photo) {
-                        Attachment *photo =[Attachment MR_createEntity];
-                        photo.attachmentUrl = [photosDict objectForKey:@"photo_1280"];
-                        [post addAttachmentsObject:photo];
+    if (![[dict objectForKey:@"attachments"] isEqual:[NSNull null]]) {
+        return;
+    }
+    
+    NSArray *photos = [dict objectForKey:@"attachments"];
+    for (NSMutableDictionary *dict in photos) {
+        
+        NSString *type = [dict objectForKey:@"type"];
+        if (type && type.length > 0) {
+            
+            if ([type isEqualToString:@"photo"]) {
+                
+                if (![[dict objectForKey:@"photo"] isEqual:[NSNull null]]) {
+                    
+                    NSDictionary *photosDict = [dict objectForKey:@"photo"];
+                    if ([photosDict objectForKey:@"photo_1280"]) {
+                        
+                        NSString *url = [photosDict objectForKey:@"photo_1280"];
+                        Attachment *photo = [Attachment MR_findFirstByAttribute:@"attachmentUrl" withValue:url];
+                        if (!photo) {
+                            
+                            Attachment *photo =[Attachment MR_createEntity];
+                            photo.attachmentUrl = [photosDict objectForKey:@"photo_1280"];
+                            [post addAttachmentsObject:photo];
+                        }
                     }
+
                 }
+                
             }
         }
     }
