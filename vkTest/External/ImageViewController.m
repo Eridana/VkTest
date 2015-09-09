@@ -15,23 +15,16 @@
 {
     BOOL closing;
     int imageIndex;
-    NSString *imageURL;
     NSMutableArray *imagesUrlList;
 }
 @end
 
 @implementation ImageViewController
 
-- (void)setImageUrl:(NSString *)theImageUrl andImagesList:(NSArray *)images
+- (void)setImagesList:(NSArray *)images andSelectedIndex:(int)index
 {
-    imageURL = theImageUrl;
-    imageIndex = 0;
-    if (images == nil) {
-        imagesUrlList = [NSMutableArray arrayWithObject:imageURL];
-    }
-    else {
-        imagesUrlList = [images mutableCopy];
-    }
+    imageIndex = index;
+    imagesUrlList = [images mutableCopy];
 }
 
 - (void)viewDidLoad

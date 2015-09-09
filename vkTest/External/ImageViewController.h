@@ -15,5 +15,5 @@
 @interface ImageViewController : UIViewController <ATPagingViewDelegate, ZoomImageViewDelegate>
 @property (assign, nonatomic) BOOL showImagesAtPaths;
 @property (strong, nonatomic) IBOutlet ATPagingView *pagingView;
-- (void)setImageUrl:(NSString *)theImageUrl andImagesList:(NSArray *)images;
+- (void)setImagesList:(NSArray *)images andSelectedIndex:(int)index;
 @end

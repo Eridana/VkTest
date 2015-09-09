@@ -15,6 +15,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *postTextView;
 @property (strong, nonatomic) IBOutlet UIImageView *postImageView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *postTextHeightConstraint;
-- (void)setData:(id)data;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageHeightConstraint;
 @end

@@ -56,7 +56,7 @@
     }
 }
 
-- (void)resetKeychains
+- (void)resetKeychain
 {
     [accessTokenKeychain resetKeychainItem];}
 

@@ -15,5 +15,5 @@
 - (NSString *)getAccessTokenFromKeychain;
 - (NSString *)getUserIDFromKeychain;
 - (void)writeAccessTokenToKeychain:(NSString *)accessToken withUserId:(NSString *)userID;
-- (void)resetKeychains;
+- (void)resetKeychain;
 @end
