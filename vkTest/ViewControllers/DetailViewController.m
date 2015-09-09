@@ -108,8 +108,9 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:pagingView.frame];
     
     [imageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         [imageView setClipsToBounds:YES];
+        [pagingView layoutIfNeeded];
     }];
     
     UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap:)];
