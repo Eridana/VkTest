@@ -59,8 +59,18 @@
 - (void)showPostData
 {
     self.titleLabel.text = post.postTitle;
-    if (post.postText.length > 0) {
-        NSString *text = post.postText;
+    
+    NSString *text = post.postText;
+    if (post.attachments.count > 0) {
+        Attachment *photo = [[post.attachments allObjects] firstObject];
+        if (photo.text.length > 0) {
+            if (text.length == 0) {
+                text = photo.text;
+            }
+        }
+    }
+    
+    if (text.length > 0) {
         CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName: textFont}];
         self.postTextView.text = text;
         self.postTextView.frame = CGRectMake(self.postTextView.frame.origin.x, self.postTextView.frame.origin.y, self.postTextView.frame.size.width, textSize.height);

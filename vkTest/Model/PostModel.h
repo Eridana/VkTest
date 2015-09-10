@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @protocol PostModelDelegate <NSObject>
-- (void)getPostsSuccess;
+- (void)getPostsSuccessWithNextFrom:(NSString *)nextFrom;
 - (void)getPostsDidFailWithError;
 @end
 
 @interface PostModel : NSObject
 @property (weak, nonatomic) id<PostModelDelegate> delegate;
-- (void)getPostsWithOffset:(int)offset andCount:(int)count;
+- (void)getPostsWithNextFrom:(NSString *)nextFrom;
+- (void)getPostsToEndDate:(double)unixTimeDate;
 - (NSFetchRequest *)getPostsRequest;
 @end

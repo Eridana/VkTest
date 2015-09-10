@@ -12,5 +12,7 @@
 @implementation Attachment
 
 @dynamic attachmentUrl;
+@dynamic text;
+@dynamic postId;
 
 @end

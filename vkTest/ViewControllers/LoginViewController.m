@@ -39,7 +39,7 @@ NSString * const VK_APP_ID = @"5054958";
 #pragma mark - VK methods
 
 - (IBAction)authButtonPressed:(id)sender {
-    [VKSdk authorize: @[VK_PER_WALL]];
+    [VKSdk authorize: @[VK_PER_WALL, VK_PER_FRIENDS]];
 }
 
 - (IBAction)looutButtonPressed:(id)sender {

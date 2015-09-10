@@ -13,5 +13,7 @@
 @interface Attachment : NSManagedObject
 
 @property (nonatomic, retain) NSString * attachmentUrl;
+@property (nonatomic, retain) NSString * text;
+@property (nonatomic, retain) NSNumber * postId;
 
 @end

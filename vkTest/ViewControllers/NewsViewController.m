@@ -26,8 +26,8 @@ const int count = 20;
     DataSource *dataSource;
     Post *selected;
     UIFont *textFont;
-    int offset;
     UIRefreshControl *refreshControl;
+    NSString *nextFrom;
 }
 @end
 
@@ -48,11 +48,11 @@ const int count = 20;
     [refreshControl addTarget:self action:@selector(checkNewPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
     
-    offset = 0;
     model = [PostModel new];
     model.delegate = self;
     dataSource = [DataSource new];
     
+    [self setLastUpdationDate];
     [self loadPosts];
 }
 
@@ -67,18 +67,28 @@ const int count = 20;
     [self.tableView reloadData];
 }
 
+- (void)setLastUpdationDate
+{
+    NSString *date = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970]];
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"lastUnixTimeDate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)loadPosts
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        [model getPostsWithOffset:offset andCount:count];
+        [model getPostsWithNextFrom:nextFrom];
     });
 }
 
 - (void)checkNewPosts
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-       
-        [model getPostsWithOffset:0 andCount:count];
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"lastUnixTimeDate"]) {
+            NSString *utDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastUnixTimeDate"];
+            double lastDate = [utDate doubleValue];
+            [model getPostsToEndDate:lastDate];
+        }
     });
 }
 
@@ -101,25 +111,43 @@ const int count = 20;
     
     Post *data = [dataSource.fetchedResultsController objectAtIndexPath:indexPath];
     cell.titleLabel.text = data.postTitle;
-    if (data.postText.length > 0) {
-        NSString *text = data.postText;
-        if (text.length > 120) {
-            text = [NSString stringWithFormat:@"%@...Читать дальше", [text substringToIndex:119]];
+    
+    NSString *text = data.postText;
+    if (data.attachments.count > 0) {
+        Attachment *photo = [[data.attachments allObjects] firstObject];
+        if (photo.text.length > 0) {
+            if (text.length == 0) {
+                text = photo.text;
+            }
         }
-        CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName: textFont}];
-        cell.postTextView.text = text;
-        cell.postTextView.frame = CGRectMake(cell.postTextView.frame.origin.x, cell.postTextView.frame.origin.y, cell.postTextView.frame.size.width, textSize.height);
+        [cell.postImageView sd_setImageWithURL:[NSURL URLWithString:photo.attachmentUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            cell.imageHeightConstraint.constant = 150;
+            cell.postImageView.clipsToBounds = YES;
+        }];
     }
     else {
-        cell.postTextView.text = @"";
+        cell.postImageView.image = nil;
+        cell.imageHeightConstraint.constant = 0;
     }
+    
+    if (text.length > 120) {
+        text = [NSString stringWithFormat:@"%@...Читать дальше", [text substringToIndex:119]];
+    }
+    CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName: textFont}];
+    cell.postTextView.text = text;
+    cell.postTextView.frame = CGRectMake(cell.postTextView.frame.origin.x, cell.postTextView.frame.origin.y, cell.postTextView.frame.size.width, textSize.height);
+
     if (data.postUser) {
         cell.userNameLabel.text = data.postUser.userName;
-        [cell.avatarImgView sd_setImageWithURL:[NSURL URLWithString:data.postUser.userAvatarUrl]];
+        [cell.avatarImgView sd_setImageWithURL:[NSURL URLWithString:data.postUser.userAvatarUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            cell.avatarImgView.clipsToBounds = YES;
+        }];
     }
     if (data.postGroup) {
         cell.userNameLabel.text = data.postGroup.groupName;
-        [cell.avatarImgView sd_setImageWithURL:[NSURL URLWithString:data.postGroup.groupAvatarUrl]];
+        [cell.avatarImgView sd_setImageWithURL:[NSURL URLWithString:data.postGroup.groupAvatarUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            cell.avatarImgView.clipsToBounds = YES;
+        }];
     }
     
     NSDateFormatter *formatter= [[NSDateFormatter alloc] init];
@@ -127,16 +155,7 @@ const int count = 20;
     [formatter setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
     NSString *dateString = [formatter stringFromDate:data.date];
     cell.dateLabel.text = dateString;
-    
-    if (data.attachments.count > 0) {
-        Attachment *photo = [[data.attachments allObjects] firstObject];
-        [cell.postImageView sd_setImageWithURL:[NSURL URLWithString:photo.attachmentUrl]];
-        cell.imageHeightConstraint.constant = 150;
-    }
-    else {
-        cell.postImageView.image = nil;
-        cell.imageHeightConstraint.constant = 0;
-    }
+
     //[cell layoutIfNeeded];
     return cell;
 }
@@ -152,21 +171,22 @@ const int count = 20;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row > [dataSource.fetchedResultsController fetchedObjects].count - 2) {
+    if (indexPath.row > [dataSource.fetchedResultsController fetchedObjects].count - 2 ) {//&& [dataSource.fetchedResultsController fetchedObjects].count > 6) {
         [self loadPosts];
     }
 }
 
 #pragma mark- PostModelDelegate
 
-- (void)getPostsSuccess
+- (void)getPostsSuccessWithNextFrom:(NSString *)nextFromStr
 {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         if (refreshControl.refreshing == YES) {
             [refreshControl endRefreshing];
+            [self setLastUpdationDate];
         }
         else {
-            offset += count;
+            nextFrom = nextFromStr;
         }
         NSLog(@"getPostsSuccess");
         [self setupDataSource];
